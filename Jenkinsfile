@@ -19,7 +19,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', passwordVariable: 'utmbarken', usernameVariable: 'barkenutm')]) {
                         sh 'docker build -t barkenutm/demo-app:jma-2.0 .'
                         sh "echo \$utmbarken | docker login -u \$barkenutm --password-stdin"
-                        sh 'docker push utmbarken/demo-app:jma-2.0'
+                        sh 'docker push barkenutm/demo-app:jma-2.0'
                     }
                 }
             }
